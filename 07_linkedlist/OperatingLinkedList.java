@@ -2,49 +2,38 @@ class OperatingLinkedList
 {
 	public static void main(String[] args)
 	{
-		/*´íÎóĞ´·¨£º
-		Node node,node1,node2;
-		node.data=1;
-		node.next=node1;
-		node1.data=2;
-		node1.next=node2;
-		node2.data=3;
-		node2.next=null;
-		*/
-		//ÕıÈ·Ğ´·¨£º
+		//æ­£ç¡®å†™æ³•ï¼š
 		Node node2=new Node(3,null);
 		Node node1=new Node(2,node2);
 		Node node=new Node(1,node1);
 		
 
-		System.out.println("Á´±í·´×ª£º");
+		System.out.println("é“¾è¡¨åè½¬ï¼š");
 		PrintLinkedList(node);
-		//Á´±í·´×ª
+		//é“¾è¡¨åè½¬
 		Node revList=ReverseLinkedList(node);		
 		PrintLinkedList(revList);
 		System.out.println();
 
-		//¼ì²â»·
+		//æ£€æµ‹ç¯
 		boolean b=CheckCircle(node);
-		System.out.println("¼ì²â»·£º");
+		System.out.println("æ£€æµ‹ç¯ï¼š");
 		System.out.println(b);
 		node2.next=node;
 		b=CheckCircle(node);
-		System.out.println("¼ì²â»·£º");
+		System.out.println("æ£€æµ‹ç¯ï¼š");
 		System.out.println(b);
 
 
 	}
 
-
-
-	//Á´±í·´×ª
+	//é“¾è¡¨åè½¬
 	public static Node ReverseLinkedList(Node node)
 	{
 		Node pre=null,now=node,next=node;
-		while(next!=null)//¿ªÊ¼´íĞ´³Énode!=null ÏİÈëÁËËÀÑ­»·
+		while(next!=null)//å¼€å§‹é”™å†™æˆnode!=null é™·å…¥äº†æ­»å¾ªç¯
 		{
-			next=next.next;//next=node.next¶ø²»ÊÇnow.next
+			next=next.next;//next=node.nextè€Œä¸æ˜¯now.next
 			now.next=pre;
 			pre=now;
 			now=next;
@@ -52,21 +41,21 @@ class OperatingLinkedList
 		return pre;
 	}
 	
-	//¼ì²â»·
+	//æ£€æµ‹ç¯
 	public static boolean CheckCircle(Node node)
 	{
 		if(node==null)
 			return false;
-		Node slow=node,fast=node.next; //Ô­ÏÈÕâÑùĞ´µÄ£ºfast=node,slow=node;ÎªÊ²Ã´ÕâÑù¾ÍÓĞÎÊÌâÄØ£¿
+		Node slow=node,fast=node.next; //åŸå…ˆè¿™æ ·å†™çš„ï¼šfast=node,slow=node;ä¸ºä»€ä¹ˆè¿™æ ·å°±æœ‰é—®é¢˜å‘¢ï¼Ÿ
 		while(slow!=null&&fast!=null)
 		{
 			slow=slow.next;
 			fast=fast.next.next;
-			if(fast==null)//µ½´ïÁ´±íÎ²²¿£¬Á´±íÎŞ»·
+			if(fast==null)//åˆ°è¾¾é“¾è¡¨å°¾éƒ¨ï¼Œé“¾è¡¨æ— ç¯
 			{
 				return false;
 			}
-			else if(slow==fast)//Á´±íÓĞ»·
+			else if(slow==fast)//é“¾è¡¨æœ‰ç¯
 			{
 				return true;
 			}
@@ -85,6 +74,7 @@ class OperatingLinkedList
 
 }
 
+//èŠ‚ç‚¹ç±»
 class Node
 {
 	int data;
